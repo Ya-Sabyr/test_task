@@ -35,4 +35,4 @@ Enpoints test_api:
 /test_api/order - update/create an order
 
 Other endpoints:
-/admin - django admin panel
+/admin - django admin panel. To access it use - username: admin, password: admin
