@@ -44,6 +44,6 @@ class OrderViewSetTest(APITestCase):
         data = {'status': 'Завершен', 'amount': 100, 'shop': self.shop.id}
         with self.settings(API_ACCOUNTING_URL='http://127.0.0.1:8080/api/order', API_LOGIN_URL='http://127.0.0.1:8080/api/login'):
             response = self.client.put(url, data, format='json')
-            print(response.data)  # Добавьте отладочный вывод для проверки ответа
+            print(response.data)
             self.assertEqual(response.status_code, status.HTTP_200_OK)
             self.assertEqual(response.data['status'], 'Завершен')

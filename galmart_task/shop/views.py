@@ -42,16 +42,16 @@ class OrderViewSet(viewsets.ModelViewSet):
 
         token = authenticate()
         if not token:
-            logging.debug("Authentication failed")  # Debugging output
+            logging.debug("Authentication failed")
             return
 
         attempts = 0
         max_attempts = 5
         while attempts < max_attempts:
             if send_data(token):
-                logging.debug("Data sent successfully.")  # Debugging output
+                logging.debug("Data sent successfully.")
                 break
             attempts += 1
             sleep(2 ** attempts)  # Exponential backoff
         else:
-            logging.debug("Failed to send data after several attempts.")  # Debugging output
+            logging.debug("Failed to send data after several attempts.")
